@@ -18,6 +18,19 @@ class UniqueCollectionTest {
     fun addAnItem() {
         val item = Item("item")
         collection.addItem(item);
+        assert(collection.size() == 1) {"Item is not in collection"}
+        assert(collection.get(0) == item) {"Item is not same as collection"}
+
+        val item2 = Item("item2")
+        val item3 = Item("item3")
+
+        collection.addItem(item2)
+        collection.addItem(item3)
+
+        assert(collection.size() == 3) {"multiple items not added"}
+
+        collection.addItem(item)
+        assert(collection.size() == 3){"Duplicate item not added"}
 
     }
 
