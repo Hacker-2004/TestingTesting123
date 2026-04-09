@@ -38,7 +38,20 @@ class UniqueCollectionTest {
     // Uniqueness is determined by the Item.name property, which is set via the constructor
     @Test
     fun addUniqueItem() {
+        val item = Item("item1")
+        val item1 = Item("ITEM1")
+        collection.addItem(item)
+        collection.addItem(item1)
 
+        assert(collection.size() == 1) {"Item is a dup"}
+
+        val item3 = Item("itme2")
+        collection.addItem(item3)
+
+        assert(collection.size() == 2) {"item not added"}
+
+        collection.addItem(item1)
+        assert(collection.size() == 2){"should not be added"}
     }
 
     // Test Driven Development (TDD) test - complete specified function so that this test passes
