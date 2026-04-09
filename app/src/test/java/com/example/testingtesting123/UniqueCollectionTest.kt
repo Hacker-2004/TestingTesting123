@@ -16,6 +16,8 @@ class UniqueCollectionTest {
     // TODO 1: Write a test to ensure items can be added to the collection
     @Test
     fun addAnItem() {
+        val item = Item("item")
+        collection.addItem(item);
 
     }
 
